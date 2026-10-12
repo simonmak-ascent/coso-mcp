@@ -1,9 +1,8 @@
 {
-  "$schema": "https://registry.modelcontextprotocol.io/schemas/server.json",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.ascent-partners/coso-mcp",
-  "description": "Open MCP server for COSO (ICIF-2013) internal-control reviews: scope, risk, controls, sampling, testing, workpapers, sign-off, deficiency evaluation and reporting.",
+  "description": "Open COSO internal-control review MCP: scope, risk, controls, sampling, testing, workpapers.",
   "version": "0.1.0",
-  "websiteUrl": "https://internal-control.ascent-partners.com",
   "repository": {
     "url": "https://github.com/simonmak-ascent/coso-mcp",
     "source": "github"
@@ -11,7 +10,6 @@
   "packages": [
     {
       "registryType": "npm",
-      "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@simonmak-ascent/coso-mcp",
       "version": "0.1.0",
       "transport": {

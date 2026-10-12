@@ -38,5 +38,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   Markdown engagement report. Tools: `classify_deficiency`, `list_deficiencies`,
   `aggregate_deficiencies`, `assess_principle`, `assess_component`,
   `framework_integration_check`, `generate_report`.
+- P6 hosted endpoint: ephemeral in-memory sandbox store, per-client rate
+  limiting, a Node streamable-HTTP handler with idle session eviction, the
+  Vercel entrypoints (`api/mcp.js`, `api/well-known.js`), a landing page and
+  `/.well-known/mcp` discovery. Deployed to
+  `https://internal-control.ascent-partners.com/mcp` (open access; writes are
+  ephemeral). `server.json` is registry-valid; npm/registry publishing is
+  pending account authentication.
 
 [Unreleased]: https://github.com/simonmak-ascent/coso-mcp/commits/main
