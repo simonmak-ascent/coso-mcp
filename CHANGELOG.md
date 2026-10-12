@@ -8,8 +8,10 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- Published to npm (`@simonmak-ascent/coso-mcp`) and adopted the GitHub MCP
-  registry namespace `io.github.simonmak-ascent/coso-mcp`.
+- Published to npm (`@simonmak-ascent/coso-mcp@0.1.1`, latest) and to the MCP
+  registry as `io.github.simonmak-ascent/coso-mcp@0.1.1`.
+- Hosted endpoint redeployed at `https://internal-control.ascent-partners.com/mcp`
+  reporting `0.1.1`.
 
 ## [Unreleased]
 
