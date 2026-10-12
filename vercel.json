@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm build",
+  "framework": null,
   "functions": {
     "api/mcp.js": { "maxDuration": 30 },
     "api/well-known.js": { "maxDuration": 10 }
