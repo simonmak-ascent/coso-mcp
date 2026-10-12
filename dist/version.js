@@ -5,7 +5,7 @@
  * across the tool surface. `SERVER_VERSION` must track `package.json`.
  */
 export const SERVER_NAME = '@simonmak-ascent/coso-mcp';
-export const SERVER_VERSION = '0.1.0';
+export const SERVER_VERSION = '0.1.1';
 export const SERVER_TITLE = 'COSO Internal Control Review';
 export const SERVER_DESCRIPTION = 'Open MCP server for internal-control reviews under the COSO Internal Control—Integrated Framework (ICIF-2013): scope, risk assessment, control register, population and sampling, attribute testing, workpapers, review sign-off, deficiency evaluation and reporting.';
 export const FRAMEWORK_LABEL = 'COSO Internal Control—Integrated Framework (ICIF-2013)';
