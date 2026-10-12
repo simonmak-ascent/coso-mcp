@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PUB = ROOT / "public"
 
 SLUG = "coso-mcp"
+SITE = "https://internal-control.ascent-partners.com"
 CLIENT_KEY = "coso"
 ENDPOINT = "https://internal-control.ascent-partners.com/mcp"
 DOCS = "https://internal-control.ascent-partners.com"
@@ -259,6 +260,8 @@ def page(loc):
         f'    <link rel="alternate" hreflang="{("x-default" if k == "en" else L[k]["html_lang"])}" href="/{"" if k == "en" else k + "/"}">'
         for k in ("en", "zh", "hk")
     )
+    og_locale = {"en": "en_GB", "zh": "zh_CN", "hk": "zh_HK"}[loc]
+    og_url = f"{SITE}/{'' if loc == 'en' else loc + '/'}"
     return f"""<!doctype html>
 <html lang="{c["html_lang"]}" data-theme="dark">
 <head>
@@ -268,6 +271,15 @@ def page(loc):
   <meta name="description" content="{esc(c["value"])}">
   <link rel="canonical" href="/{"" if loc == "en" else loc + "/"}">
 {alts}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{esc(c["name"])}">
+  <meta property="og:title" content="{esc(c["name"])}">
+  <meta property="og:description" content="{esc(c["value"])}">
+  <meta property="og:url" content="{og_url}">
+  <meta property="og:locale" content="{og_locale}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{esc(c["name"])}">
+  <meta name="twitter:description" content="{esc(c["value"])}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Titillium+Web:wght@400;600;700&family=Raleway:wght@600;700&display=swap" rel="stylesheet">
