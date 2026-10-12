@@ -1,0 +1,37 @@
+name: Feature request
+description: Suggest a capability for coso-mcp
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: Describe the review need first; the framework mapping is the important part.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / need
+      description: What part of the COSO review lifecycle is not covered?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Tool(s), inputs/outputs, and the framework principle(s) it serves.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
+  - type: checkboxes
+    id: standards
+    attributes:
+      label: Standards alignment
+      options:
+        - label: This keeps COSO ICIF-2013 wording paraphrased (no licensed text).
+          required: true
+        - label: This introduces no fabricated data.
+          required: true

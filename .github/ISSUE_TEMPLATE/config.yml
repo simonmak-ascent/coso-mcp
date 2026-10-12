@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/simonmak-ascent/coso-mcp/security/policy
+    about: Report vulnerabilities privately — do not open a public issue.
+  - name: Documentation
+    url: https://internal-control.ascent-partners.com
+    about: Hosted endpoint and usage documentation.

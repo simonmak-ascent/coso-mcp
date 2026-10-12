@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>COSO Internal Control Review — MCP server</title>
+    <meta
+      name="description"
+      content="An open MCP server for internal-control reviews under the COSO Internal Control—Integrated Framework (ICIF-2013): scope, risk, controls, sampling, testing, workpapers, sign-off, deficiency evaluation and reporting."
+    />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --panel: #141a2e;
+        --text: #e6e9f2;
+        --muted: #9aa4bf;
+        --accent: #6ea8fe;
+        --border: #26304a;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        color: var(--text);
+        background: linear-gradient(180deg, var(--bg), #0e1428);
+      }
+      main { max-width: 860px; margin: 0 auto; padding: 56px 20px 72px; }
+      h1 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 8px; letter-spacing: -0.02em; }
+      h2 { font-size: 20px; margin: 40px 0 12px; }
+      p { color: var(--muted); }
+      a { color: var(--accent); }
+      .lead { font-size: 18px; color: var(--text); }
+      code, pre {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 13.5px;
+      }
+      pre {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 14px 16px;
+        overflow-x: auto;
+      }
+      code { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 1px 5px; }
+      pre code { background: none; border: 0; padding: 0; }
+      .badges span {
+        display: inline-block;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 2px 10px;
+        margin: 0 6px 6px 0;
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+      table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+      th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); font-size: 14px; }
+      th { color: var(--muted); font-weight: 600; }
+      .note { border-left: 3px solid var(--accent); padding: 8px 14px; background: var(--panel); border-radius: 0 8px 8px 0; }
+      footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>COSO Internal Control Review — MCP server</h1>
+      <p class="lead">
+        An open <strong>Model Context Protocol</strong> server for internal-control reviews under the
+        <strong>COSO Internal Control—Integrated Framework (ICIF-2013)</strong>.
+      </p>
+      <div class="badges">
+        <span>MIT</span><span>MCP</span><span>COSO ICIF-2013</span><span>Open access</span>
+      </div>
+
+      <h2>What it does</h2>
+      <p>
+        Runs the full review lifecycle: scope → risk assessment → control register → population →
+        sampling → testing → workpapers → review sign-off → deficiency evaluation → report — grounded
+        in the framework's 5 components, 17 principles and points of focus.
+      </p>
+
+      <h2>Endpoint</h2>
+      <p>Streamable HTTP, open access. Writes run in an ephemeral, isolated, rate-limited session and are never persisted.</p>
+      <pre><code>https://internal-control.ascent-partners.com/mcp</code></pre>
+      <p>Discovery: <a href="/.well-known/mcp"><code>/.well-known/mcp</code></a></p>
+
+      <h2>Use it locally</h2>
+      <pre><code>{
+  "mcpServers": {
+    "coso": { "command": "npx", "args": ["-y", "@simonmak-ascent/coso-mcp"] }
+  }
+}</code></pre>
+
+      <h2>Why it exists</h2>
+      <p>
+        Existing MCP servers either expose a vendor's GRC records (read-mostly, proprietary) or cover
+        ISO 27001 / security controls. <code>coso-mcp</code> is the first open, COSO/ICFR-native,
+        write-capable MCP that runs a traceable review — the lifecycle layer, not the data layer.
+      </p>
+      <table>
+        <tr><th>Capability</th><th>coso-mcp</th><th>Vendor GRC MCPs</th></tr>
+        <tr><td>COSO 5 components / 17 principles native</td><td>Yes</td><td>No</td></tr>
+        <tr><td>Full lifecycle to signed workpaper</td><td>Yes</td><td>Read-only</td></tr>
+        <tr><td>Deterministic sampling &amp; deficiency math</td><td>Yes</td><td>Partial</td></tr>
+        <tr><td>Open source + open access</td><td>Yes</td><td>Paid platform</td></tr>
+      </table>
+
+      <h2>Tools</h2>
+      <p>
+        Reference (<code>list_components</code>, <code>list_principles</code>, <code>get_principle</code>,
+        <code>list_assertions</code>), engagement (<code>create_engagement</code>, <code>add_scope_item</code>,
+        <code>register_risk</code>, <code>register_control</code>), testing (<code>compute_sample_size</code>,
+        <code>create_population</code>, <code>select_sample</code>, <code>record_test_result</code>,
+        <code>note_exception</code>), workpapers (<code>assemble_workpaper</code>, <code>add_review_note</code>,
+        <code>sign_off</code>), and assessment (<code>classify_deficiency</code>,
+        <code>aggregate_deficiencies</code>, <code>assess_component</code>, <code>generate_report</code>).
+      </p>
+
+      <p class="note">
+        This server assists with internal-control review methodology. It does not provide audit or
+        legal advice. All workpapers and assessments must be reviewed by qualified professionals
+        before use in audit documentation.
+      </p>
+
+      <footer>
+        MIT © Simon Mak / Ascent Partners Group Limited ·
+        <a href="https://github.com/simonmak-ascent/coso-mcp">GitHub</a> ·
+        <a href="https://www.npmjs.com/package/@simonmak-ascent/coso-mcp">npm</a>
+      </footer>
+    </main>
+  </body>
+</html>

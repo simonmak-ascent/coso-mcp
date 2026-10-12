@@ -1,0 +1,46 @@
+name: Bug report
+description: Report a defect in coso-mcp
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to file a bug. Do not include secrets or engagement data.
+  - type: input
+    id: version
+    attributes:
+      label: Version / commit
+      placeholder: "@simonmak-ascent/coso-mcp 0.1.0 or commit SHA"
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      options:
+        - Local (stdio)
+        - Hosted (internal-control.ascent-partners.com/mcp)
+        - Both
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected vs what occurred.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      placeholder: MCP client, tool called, inputs (redacted).
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      description: Paste sanitised logs/responses only.
+    validations:
+      required: false

@@ -1,0 +1,11 @@
+{
+  "buildCommand": "pnpm build",
+  "functions": {
+    "api/mcp.js": { "maxDuration": 30 },
+    "api/well-known.js": { "maxDuration": 10 }
+  },
+  "rewrites": [
+    { "source": "/mcp", "destination": "/api/mcp" },
+    { "source": "/.well-known/mcp", "destination": "/api/well-known" }
+  ]
+}

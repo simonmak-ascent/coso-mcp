@@ -1,0 +1,68 @@
+{
+  "name": "@simonmak-ascent/coso-mcp",
+  "version": "0.1.0",
+  "description": "Open MCP server for COSO (ICIF-2013) internal-control reviews: scope, risk assessment, control register, population, sampling, testing, workpapers, review sign-off, deficiency evaluation and reporting.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "coso",
+    "internal-control",
+    "internal-controls",
+    "icfr",
+    "sox",
+    "audit",
+    "grc",
+    "risk",
+    "compliance"
+  ],
+  "type": "module",
+  "bin": {
+    "coso-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "pnpm build",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm typecheck && pnpm test",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "author": "Simon Mak <simon.pl.mak@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://internal-control.ascent-partners.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonmak-ascent/coso-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/simonmak-ascent/coso-mcp/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/node": "^2.1.1",
+    "@modelcontextprotocol/server": "^2.3.1",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "^2.3.1",
+    "@types/node": "^26.6.5",
+    "@vitest/coverage-v8": "^5.0.3",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}
