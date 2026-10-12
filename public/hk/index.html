@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-Hant-HK" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COSO 內部控制 MCP — Ascent Partners</title>
+  <meta name="description" content="端到端執行 COSO 內部控制審查——範圍、風險、控制、抽樣、測試、工作底稿、簽署及缺陷評估。">
+  <link rel="canonical" href="/hk/">
+    <link rel="alternate" hreflang="x-default" href="/">
+    <link rel="alternate" hreflang="zh-Hans" href="/zh/">
+    <link rel="alternate" hreflang="zh-Hant-HK" href="/hk/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Titillium+Web:wght@400;600;700&family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../apg-tokens.css">
+  <link rel="stylesheet" href="../apg-tool.css">
+  <script>(function(){try{var v=localStorage.getItem("apg-theme");document.documentElement.setAttribute("data-theme",v==="light"||v==="dark"?v:"dark");}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
+</head>
+<body>
+  <div class="apg-topbar">
+    <div class="apg-container apg-topbar-inner">
+      <a class="apg-brand" href="https://www.ascent-partners.com/tools"><span class="apg-mark">AP</span> Ascent&nbsp;Partners · <span style="font-family:var(--ap-font-body);font-weight:400">開放工具</span></a>
+      <div class="apg-controls">
+        <span class="apg-langs"><a class="apg-lang" href="../" hreflang="en-GB">English</a><a class="apg-lang" href="../zh/" hreflang="zh-Hans">中文</a><a class="apg-lang" href="../hk/" hreflang="zh-Hant-HK" aria-current="true">繁體</a></span>
+        <button class="apg-theme-toggle" type="button" aria-label="Toggle theme">☾</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="apg-hero">
+    <img src="../hero.jpg" alt="" width="1440" height="750">
+    <div class="apg-scrim"></div>
+    <nav class="apg-crumbs" aria-label="Breadcrumb">
+      <div class="apg-container">
+        <ol>
+          <li><a href="https://www.ascent-partners.com/">首頁</a></li>
+          <li><a href="https://www.ascent-partners.com/tools">開放工具</a></li>
+          <li aria-current="page">COSO 內部控制 MCP</li>
+        </ol>
+      </div>
+    </nav>
+    <h1 class="apg-container">COSO 內部控制 MCP</h1>
+  </header>
+
+  <main class="apg-container apg-main">
+    <div class="apg-header">
+      <span class="apg-badge">MCP 伺服器</span>
+      <p class="apg-value">端到端執行 COSO 內部控制審查——範圍、風險、控制、抽樣、測試、工作底稿、簽署及缺陷評估。</p>
+      <p class="apg-thesis">內部控制關乎證據。這裏運行整條論證——可追溯，對齊覆核者將檢驗的框架。</p>
+    </div>
+
+    <dl class="apg-stats"><div class="apg-stat"><dt>個 COSO 要素</dt><dd>5</dd></div><div class="apg-stat"><dt>項原則</dt><dd>17</dd></div><div class="apg-stat"><dt>個 MCP 工具</dt><dd>20</dd></div><div class="apg-stat"><dt>無需密鑰</dt><dd>開放</dd></div></dl>
+
+    <div class="apg-sections">
+      <section class="apg-section-h">
+        <h2>能力</h2>
+        <ul class="apg-caps"><li>覆蓋完整審查生命週期的 20 個工具</li><li>COSO ICIF-2013：5 個要素、17 項原則、關注點</li><li>確定性的抽樣與缺陷計算</li></ul>
+      </section>
+      <section class="apg-section-h">
+        <h2>準則</h2>
+        <ul class="apg-chips"><li>COSO ICIF-2013</li></ul>
+      </section>
+      <section class="apg-section-h">
+        <h2>連接</h2>
+        <p>將 MCP 客戶端指向託管端點。開放存取，無需 API 密鑰。</p>
+        <div class="apg-tabs" role="tablist"><button class="apg-tab" role="tab" aria-selected="true" data-target="pane-opencode">OpenCode</button><button class="apg-tab" role="tab" aria-selected="false" data-target="pane-claude-code">Claude Code</button><button class="apg-tab" role="tab" aria-selected="false" data-target="pane-claude-desktop">Claude Desktop</button><button class="apg-tab" role="tab" aria-selected="false" data-target="pane-cursor">Cursor</button><button class="apg-tab" role="tab" aria-selected="false" data-target="pane-vscode">VS Code</button><button class="apg-tab" role="tab" aria-selected="false" data-target="pane-generic">Any MCP client</button><div class="apg-pane" id="pane-opencode" role="tabpanel"><button class="apg-copy" type="button">複製</button><pre>{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "coso": { "type": "remote", "url": "https://internal-control.ascent-partners.com/mcp" }
+  }
+}</pre></div><div class="apg-pane" id="pane-claude-code" role="tabpanel" hidden><button class="apg-copy" type="button">複製</button><pre>claude mcp add --transport http coso https://internal-control.ascent-partners.com/mcp</pre></div><div class="apg-pane" id="pane-claude-desktop" role="tabpanel" hidden><button class="apg-copy" type="button">複製</button><pre>{
+  "mcpServers": {
+    "coso": { "url": "https://internal-control.ascent-partners.com/mcp" }
+  }
+}</pre></div><div class="apg-pane" id="pane-cursor" role="tabpanel" hidden><button class="apg-copy" type="button">複製</button><pre>{
+  "mcpServers": {
+    "coso": { "url": "https://internal-control.ascent-partners.com/mcp" }
+  }
+}</pre></div><div class="apg-pane" id="pane-vscode" role="tabpanel" hidden><button class="apg-copy" type="button">複製</button><pre>{
+  "servers": {
+    "coso": { "type": "http", "url": "https://internal-control.ascent-partners.com/mcp" }
+  }
+}</pre></div><div class="apg-pane" id="pane-generic" role="tabpanel" hidden><button class="apg-copy" type="button">複製</button><pre>{
+  "mcpServers": {
+    "coso": { "url": "https://internal-control.ascent-partners.com/mcp" }
+  }
+}</pre></div></div>
+      </section>
+      <section class="apg-section-h">
+        <h2>資訊</h2>
+        <dl class="apg-facts"><div class="apg-fact"><dt>端點</dt><dd><code>https://internal-control.ascent-partners.com/mcp</code></dd></div><div class="apg-fact"><dt>傳輸</dt><dd>Streamable HTTP</dd></div><div class="apg-fact"><dt>認證</dt><dd>開放——無需密鑰</dd></div><div class="apg-fact"><dt>授權</dt><dd>MIT</dd></div><div class="apg-fact"><dt>註冊表</dt><dd><code>io.github.simonmak-ascent/coso-mcp</code></dd></div></dl>
+      </section>
+      <section class="apg-card">
+        <h2>來源</h2>
+        <p>由艾升集團技術諮詢團隊構建。內部控制審查方法論——不構成審計或法律意見。</p>
+        <div class="apg-inline-links">
+          <a href="https://www.ascent-partners.com/services/technology-advisory">技術諮詢</a>
+          <a href="https://www.ascent-partners.com/about#contact">聯絡我們</a>
+        </div>
+      </section>
+      <div class="apg-actions">
+        <a class="apg-btn apg-btn-primary" href="https://internal-control.ascent-partners.com" rel="noopener">文件</a>
+        <a class="apg-btn apg-btn-secondary" href="https://github.com/simonmak-ascent/coso-mcp" rel="noopener">原始碼</a>
+      </div>
+      <a class="apg-back" href="https://www.ascent-partners.com/tools">← 全部工具</a>
+    </div>
+  </main>
+
+  <footer class="apg-footer">
+    <div class="apg-container">
+      <p>MIT © Simon Mak / Ascent Partners Group Limited · <a href="https://github.com/simonmak-ascent/coso-mcp" rel="noopener">GitHub</a> · <a href="https://www.npmjs.com/package/@simonmak-ascent/coso-mcp" rel="noopener">npm</a></p>
+    </div>
+  </footer>
+
+  <script src="../apg-tool.js"></script>
+</body>
+</html>
