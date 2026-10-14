@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.simonmak-ascent/coso-mcp",
+  "name": "com.ascent-partners/coso-mcp",
   "description": "Open COSO internal-control review MCP: scope, risk, controls, sampling, testing, workpapers.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "url": "https://github.com/simonmak-ascent/coso-mcp",
     "source": "github"
@@ -11,7 +11,7 @@
     {
       "registryType": "npm",
       "identifier": "@simonmak-ascent/coso-mcp",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "transport": {
         "type": "stdio"
       }

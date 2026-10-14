@@ -19,7 +19,7 @@ ENDPOINT = "https://internal-control.ascent-partners.com/mcp"
 DOCS = "https://internal-control.ascent-partners.com"
 REPO = "https://github.com/simonmak-ascent/coso-mcp"
 NPM = "https://www.npmjs.com/package/@simonmak-ascent/coso-mcp"
-REGISTRY = "io.github.simonmak-ascent/coso-mcp"
+REGISTRY = "com.ascent-partners/coso-mcp"
 
 TECH = "https://www.ascent-partners.com/services/technology-advisory"
 CONTACT = "https://www.ascent-partners.com/about#contact"

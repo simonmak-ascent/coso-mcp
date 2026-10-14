@@ -1,8 +1,8 @@
 {
   "name": "@simonmak-ascent/coso-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Open MCP server for COSO (ICIF-2013) internal-control reviews: scope, risk assessment, control register, population, sampling, testing, workpapers, review sign-off, deficiency evaluation and reporting.",
-  "mcpName": "io.github.simonmak-ascent/coso-mcp",
+  "mcpName": "com.ascent-partners/coso-mcp",
   "keywords": [
     "mcp",
     "model-context-protocol",
