@@ -105,6 +105,7 @@ cmd_preview() { # <ts>
   {
     printf '%s {\n' "$ph"
     printf '\tencode zstd gzip\n\ttls %s %s\n' "$cert" "$key"
+    printf '\theader {\n\t\tStrict-Transport-Security "max-age=31536000; includeSubDomains"\n\t\tX-Content-Type-Options "nosniff"\n\t\tX-Frame-Options "SAMEORIGIN"\n\t\tReferrer-Policy "strict-origin-when-cross-origin"\n\t\tX-Robots-Tag "noindex, nofollow"\n\t}\n'
     printf '\thandle {\n\t\treverse_proxy 127.0.0.1:%s\n\t}\n}\n' "$(slot_port preview)"
   } > "$PREVIEW_FRAG"
   caddy_reload

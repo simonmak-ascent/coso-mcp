@@ -258,6 +258,18 @@ docs_publish() {
 # Naver, …) can verify submissions.
 INDEXNOW_KEY="${INDEXNOW_KEY:-5b6db8fc53dbad8e8a4e85d5baf92f19}"
 
+# Response-hardening headers emitted by every vhost (production + preview).
+# HSTS without `preload` (reversible); includeSubDomains is safe — every
+# *.ascent-partners.com host is HTTPS-only behind Caddy.
+emit_security_headers() {
+  printf '\theader {\n'
+  printf '\t\tStrict-Transport-Security "max-age=31536000; includeSubDomains"\n'
+  printf '\t\tX-Content-Type-Options "nosniff"\n'
+  printf '\t\tX-Frame-Options "SAMEORIGIN"\n'
+  printf '\t\tReferrer-Policy "strict-origin-when-cross-origin"\n'
+  printf '\t}\n'
+}
+
 write_app_vhost() {
   local out="$1" slot="$2" frontend="$3"
   local cert key; cert="$(mf tls.cert)"; key="$(mf tls.key)"
@@ -268,6 +280,7 @@ write_app_vhost() {
     printf '\tencode zstd gzip\n'
     printf '\ttls %s %s\n' "$cert" "$key"
     printf '\tgeoip2_vars strict\n'
+    emit_security_headers
     # One canonical origin: permanently move any "www." alias to the apex host
     # (path + query preserved) so there is a single indexable origin. Other
     # aliases (e.g. a China edge host) stay as served copies of the same site.

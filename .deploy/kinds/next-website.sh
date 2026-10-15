@@ -115,6 +115,7 @@ cmd_preview() { # <ts>
   {
     printf '%s {\n' "$ph"
     printf '\tencode zstd gzip\n\ttls %s %s\n' "$cert" "$key"
+    printf '\theader {\n\t\tStrict-Transport-Security "max-age=31536000; includeSubDomains"\n\t\tX-Content-Type-Options "nosniff"\n\t\tX-Frame-Options "SAMEORIGIN"\n\t\tReferrer-Policy "strict-origin-when-cross-origin"\n\t\tX-Robots-Tag "noindex, nofollow"\n\t}\n'
     if mf docs >/dev/null 2>&1; then
       printf '\thandle_path /docs/* {\n\t\troot * /srv/sites/%s/docs\n\t\tfile_server\n\t}\n' "$APP"
     fi
