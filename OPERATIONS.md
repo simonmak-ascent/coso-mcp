@@ -5,12 +5,17 @@ Operational notes for the hosted endpoint at
 
 ## Deployment
 
-- **Platform:** Vercel (team `simonmak-ascent`, "AP Team").
-- **Function:** `api/mcp.js` — serverless MCP endpoint; `vercel.json` rewrites
-  `/mcp` → `/api/mcp`.
-- **Domain:** `internal-control.ascent-partners.com` added as a Vercel project
-  domain. DNS is managed at **Alibaba Cloud DNS** (`ns7/ns8.alidns.com`); the
-  subdomain record points at Vercel, which terminates TLS.
+- **Platform:** Alibaba Cloud ECS **`ecs-01`** (edge node), behind Caddy.
+- **Runtime:** `server.mjs` — a long-running Node HTTP server (systemd
+  `coso-mcp@<slot>`), exposing `/mcp` (streamable-http), `/.well-known/mcp`
+  and the static `public/` site. `createRequestHandler()` in `src/http.ts` is
+  the shared handler; `server.mjs` mirrors the old `vercel.json` rewrites.
+- **Slots:** blue `:8070`, green `:8071` (preview `:8072`), switched behind Caddy.
+- **Domain:** `internal-control.ascent-partners.com` resolves to the node via the
+  `*.ascent-partners.com` wildcard (DNS at **Alibaba Cloud DNS**); Caddy
+  terminates TLS with the site wildcard certificate.
+- **CD:** `.github/workflows/deploy.yml` → `app-cd.yml` (self-hosted runner
+  `apg-ecs-01`), driven by `.deploy/apps.yaml` (`kind: node-service`).
 
 ## Access model
 
@@ -28,8 +33,9 @@ Operational notes for the hosted endpoint at
 
 ## Rollback
 
-- Redeploy the previous Vercel deployment (deployments are immutable and
-  promotable). No persistent state to migrate — sessions are ephemeral.
+- `bash .deploy/kinds/node-service.sh rollback` switches production back to the
+  previous slot (`blue`/`green`). The CD workflow does this automatically when a
+  deploy fails. No persistent state to migrate — sessions are ephemeral.
 
 ## Secrets
 

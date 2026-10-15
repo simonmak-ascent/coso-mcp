@@ -37,7 +37,7 @@ CI: `.github/workflows/ci.yml` (typecheck / test / build).
 - `src/tools/` — one module per tool group (reference, engagement, testing,
   workpaper, assessment).
 - `src/security/` — validation, rate limiting, ephemeral sandbox, audit log.
-- `api/` — Vercel entrypoint; `test/` — vitest; `vdd/` — VDD chain artifacts.
+- `server.mjs` — box (ecs-01) HTTP entrypoint; `test/` — vitest; `vdd/` — VDD chain artifacts.
 
 ## Conventions
 
