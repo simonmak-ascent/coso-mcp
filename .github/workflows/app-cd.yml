@@ -18,6 +18,9 @@ on:
         default: false
 
 concurrency:
+  # One prod deploy at a time (same ref => serialised, never cancelled);
+  # superseded PR-preview deploys are cancelled instead of queueing, so a
+  # burst of previews can no longer starve the required `check` on the runner.
   group: app-cd-${{ inputs.app }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
@@ -76,10 +79,10 @@ jobs:
         if: github.event_name == 'push'
         run: bash "$KIND_DIR/${{ steps.kind.outputs.kind }}.sh" smoke
 
-      # Keyless search-engine submission (IndexNow); non-blocking by design.
-      # coso-mcp has no sitemap/IndexNow script, so the step is skipped when absent.
+      # Keyless search-engine submission (IndexNow); non-blocking by design —
+      # a rejected batch must not fail or roll back a healthy deploy.
       - name: Submit to IndexNow
-        if: github.event_name == 'push' && hashFiles('scripts/indexnow.mjs') != ''
+        if: github.event_name == 'push'
         continue-on-error: true
         run: node scripts/indexnow.mjs
 
