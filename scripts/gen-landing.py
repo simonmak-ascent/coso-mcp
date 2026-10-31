@@ -7,16 +7,19 @@ anatomy from apg-website specs/tools-presentation.md §4. Run from the repo root
     python3 scripts/gen-landing.py
 """
 
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PUB = ROOT / "public"
 
 SLUG = "coso-mcp"
-SITE = "https://internal-control.ascent-partners.com"
+# The site, endpoint and docs share one public base. Unset by default: the host they named was
+# never created, so the default is the repository — a URL that resolves — rather than a dead one.
+SITE = os.environ.get("COSO_PUBLIC_BASE", "https://github.com/simonmak-ascent/coso-mcp")
 CLIENT_KEY = "coso"
-ENDPOINT = "https://internal-control.ascent-partners.com/mcp"
-DOCS = "https://internal-control.ascent-partners.com"
+ENDPOINT = SITE + "/mcp"
+DOCS = SITE
 REPO = "https://github.com/simonmak-ascent/coso-mcp"
 NPM = "https://www.npmjs.com/package/@simonmak-ascent/coso-mcp"
 REGISTRY = "com.ascent-partners/coso-mcp"
