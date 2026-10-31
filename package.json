@@ -40,7 +40,7 @@
   },
   "author": "Simon Mak <simon.pl.mak@gmail.com>",
   "license": "MIT",
-  "homepage": "https://internal-control.ascent-partners.com",
+  "homepage": "https://github.com/simonmak-ascent/coso-mcp",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/simonmak-ascent/coso-mcp.git"

@@ -16,11 +16,5 @@
         "type": "stdio"
       }
     }
-  ],
-  "remotes": [
-    {
-      "type": "streamable-http",
-      "url": "https://internal-control.ascent-partners.com/mcp"
-    }
   ]
 }

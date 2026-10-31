@@ -19,7 +19,7 @@ body:
       label: Surface
       options:
         - Local (stdio)
-        - Hosted (internal-control.ascent-partners.com/mcp)
+        - Hosted (not currently deployed — local stdio only)
         - Both
     validations:
       required: true

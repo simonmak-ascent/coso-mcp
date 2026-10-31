@@ -61,7 +61,11 @@ function sendWellKnown(res) {
       description:
         "Open MCP server for COSO (ICIF-2013) internal-control reviews: scope, risk, controls, sampling, testing, workpapers, sign-off, deficiency evaluation and reporting.",
       transport: "streamable-http",
-      endpoint: "https://internal-control.ascent-partners.com/mcp",
+      // Published only when COSO_PUBLIC_BASE is set. It used to hardcode a host that was never
+      // created, so a discovery client was pointed at a name that does not resolve.
+      ...(process.env.COSO_PUBLIC_BASE
+        ? { endpoint: `${process.env.COSO_PUBLIC_BASE}/mcp` }
+        : {}),
       protocol: "modelcontextprotocol",
       license: "MIT",
       repository: "https://github.com/simonmak-ascent/coso-mcp",
